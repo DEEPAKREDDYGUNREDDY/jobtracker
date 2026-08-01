@@ -1,0 +1,38 @@
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.iml
+
+# Build
+target/
+*.class
+*.jar
+*.war
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Credentials (DO NOT COMMIT)
+*.pem
+*.key
+credentials.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Maven
+.m2/
+
+# Node (if you add frontend later)
+node_modules/
+npm-debug.log

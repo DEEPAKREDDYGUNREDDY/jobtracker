@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: job-tracker-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/job_tracker
+    username: postgres
+    password: pass123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: ${PORT:8080}
+
+app:
+  jwt:
+    secret: iXyGWPs0loh-476qELheAgW8E9qe3JfhVF9jTdqpjB3HXmBjNXRckVOuRLQfN25D
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000}
+
+  google:
+    client-id: ${GOOGLE_CLIENT_ID:449403280901-136hcqde7re40ji340vcikr1seusoq7j.apps.googleusercontent.com}
+    client-secret: ${GOOGLE_CLIENT_SECRET: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}
+    redirect-uri: ${GOOGLE_REDIRECT_URI:http://localhost:8080/api/gmail/callback}
+
+
+  anthropic:
+    api-key: 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  # Your actual API key
+    model: claude-haiku-4-5
+
+  gmail:
+    sync-interval-ms: ${GMAIL_SYNC_INTERVAL_MS:300000}
+    confidence-threshold: ${GMAIL_CONFIDENCE_THRESHOLD:0.6}
+    initial-lookback-days: ${GMAIL_INITIAL_LOOKBACK_DAYS:30}
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.cache.interceptor: TRACE
